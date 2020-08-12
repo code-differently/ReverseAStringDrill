@@ -15,13 +15,14 @@ class Main {
   }
 
   public static String remove(String word, char unwanted){
-    StringBuilder modifiedWord = new StringBuilder();
-      for(char letter: word.toCharArray()) {
-        if(letter != unwanted) {
-          modifiedWord.append(letter);
-        }
-      }
-    return modifiedWord.toString();
+    // StringBuilder modifiedWord = new StringBuilder();
+    //   for(char letter: word.toCharArray()) {
+    //     if(letter != unwanted) {
+    //       modifiedWord.append(letter);
+    //     }
+    //   }
+    // return modifiedWord.toString();
+    return word.replaceAll(String.valueOf(unwanted), "");
   }
 
   /*Extra Credit Flex*/

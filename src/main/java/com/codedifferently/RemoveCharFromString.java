@@ -1,17 +1,31 @@
-package com.codedifferently;
+import java.util.logging.Logger; 
+class Main {
+  private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+  public static void main(String[] args) {
+    System.out.println("Hello world!");
+    logger.info(remove("abc", 'a'));
+    logger.info(remove("abcd", 'c'));
+    logger.info(remove("", 'd'));
+    logger.info(remove("abcd", 'd'));
+  }
 
-public class RemoveCharFromString {
-    private static final Logger logger = LoggerFactory.getLogger(RemoveCharFromString.class);
+  public static String remove(String word, char unwanted){
+    StringBuilder modifiedWord = new StringBuilder();
+      for(char letter: word.toCharArray()) {
+        if(letter != unwanted) {
+          modifiedWord.append(letter);
+        }
+      }
+    return modifiedWord.toString();
+  }
 
-    public String remove(String word, char unwanted){
-        return null;
+  /*Extra Credit Flex*/
+  public String removeRecursive(String word, char ch){
+    int index = word.indexOf(ch);
+    if(index == -1) {
+      return word;
     }
-
-    /*Extra Credit Flex*/
-    public String removeRecursive(String word, char ch){
-        return null;
-    }
+    return removeRecursive(word.substring(0, index) + word.substring(index), ch);
+  }
 }

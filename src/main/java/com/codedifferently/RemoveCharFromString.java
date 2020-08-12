@@ -1,20 +1,9 @@
-import java.util.logging.Logger; 
-class Main {
-  private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+package com.codedifferently;
 
-  public static void main(String[] args) {
-    System.out.println("Hello world!");
-    logger.info(remove("abc", 'a'));
-    logger.info(remove("abcd", 'c'));
-    logger.info(remove("", 'd'));
-    logger.info(removeRecursive("abcdefgh", 'a'));
-    logger.info(removeRecursive("abcd", 'c'));
-    logger.info(removeRecursive("abcd", 'd'));
-    logger.info(remove("aaaaaaaaaaaaaa", 'a'));
-    logger.info(remove("aaaaaaaaaaaaaab", 'a'));
-  }
+public class RemoveCharFromString {
 
   public static String remove(String word, char unwanted){
+    return word.replaceAll(String.valueOf(unwanted), "");
     // StringBuilder modifiedWord = new StringBuilder();
     //   for(char letter: word.toCharArray()) {
     //     if(letter != unwanted) {
@@ -22,7 +11,6 @@ class Main {
     //     }
     //   }
     // return modifiedWord.toString();
-    return word.replaceAll(String.valueOf(unwanted), "");
   }
 
   /*Extra Credit Flex*/

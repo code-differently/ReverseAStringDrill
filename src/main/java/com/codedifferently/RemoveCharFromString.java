@@ -1,17 +1,24 @@
 package com.codedifferently;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
-
 public class RemoveCharFromString {
-    private static final Logger logger = LoggerFactory.getLogger(RemoveCharFromString.class);
 
-    public String remove(String word, char unwanted){
-        return null;
-    }
+  public static String remove(String word, char unwanted){
+    return word.replaceAll(String.valueOf(unwanted), "");
+    // StringBuilder modifiedWord = new StringBuilder();
+    //   for(char letter: word.toCharArray()) {
+    //     if(letter != unwanted) {
+    //       modifiedWord.append(letter);
+    //     }
+    //   }
+    // return modifiedWord.toString();
+  }
 
-    /*Extra Credit Flex*/
-    public String removeRecursive(String word, char ch){
-        return null;
+  /*Extra Credit Flex*/
+  public static String removeRecursive(String word, char ch){
+    int index = word.indexOf(ch);
+    if(index == -1) {
+      return word;
     }
+    return removeRecursive(word.substring(0, index) + word.substring(index + 1), ch);
+  }
 }

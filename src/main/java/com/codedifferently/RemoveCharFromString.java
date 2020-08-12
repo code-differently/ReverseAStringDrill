@@ -1,17 +1,25 @@
 package com.codedifferently;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
-
 public class RemoveCharFromString {
-    private static final Logger logger = LoggerFactory.getLogger(RemoveCharFromString.class);
 
     public String remove(String word, char unwanted){
-        return null;
+        String fakeStringBuilder = "";
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) != unwanted) {
+                fakeStringBuilder += word.charAt(i);
+            }
+        }
+        return fakeStringBuilder;
     }
 
     /*Extra Credit Flex*/
     public String removeRecursive(String word, char ch){
-        return null;
+        if (word.indexOf(ch) == -1) {
+            return word;
+        } else {
+            int chIndex = word.indexOf(ch);
+            String newWord = word.substring(0, chIndex) + word.substring(chIndex + 1);
+            return removeRecursive(newWord, ch);
+        }
     }
 }
